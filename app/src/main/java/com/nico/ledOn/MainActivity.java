@@ -37,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
                     camera.stopPreview();
                     isLighOn = false;
                     Snackbar.make(view, "torch is turn off!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                    Log.i("MainActivity", "torch is turn off!");
+                    // Log.i("MainActivity", "torch is turn off!");
                 } else {
                     p.setFlashMode(Parameters.FLASH_MODE_TORCH);
                     camera.setParameters(p);
                     camera.startPreview();
                     isLighOn = true;
                     Snackbar.make(view, "torch is turn on!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                    Log.i("MainActivity", "torch is turn on!");
+                    // Log.i("MainActivity", "torch is turn on!");
                 }
             }
         });
