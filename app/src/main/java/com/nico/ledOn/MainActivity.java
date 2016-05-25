@@ -27,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
         camera = Camera.open();
         final Parameters p = camera.getParameters();
 
+        p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+        camera.setParameters(p);
+        camera.startPreview();
+        isLighOn = true;
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_exit) {
+        /* if (id == R.id.action_exit) {
             // return true;
             System.exit(0);
-        }
+        } */
 
         return super.onOptionsItemSelected(item);
     }
@@ -80,5 +85,9 @@ public class MainActivity extends AppCompatActivity {
         if (camera != null) {
             camera.release();
         }
+    }
+
+    public void onBackPressed() {
+        System.exit(0);
     }
 }
